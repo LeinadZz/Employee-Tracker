@@ -152,4 +152,10 @@ function loadPrompts() {
             message: "What is the employee's last name?"
           }
         ])
-        
+        .then(res => {
+            let firstName = res.first_name;
+            let lastName = res.last_name;
+
+            db.findAllRoles()
+        })
+      }
