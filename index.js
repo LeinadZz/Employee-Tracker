@@ -157,5 +157,12 @@ function loadPrompts() {
             let lastName = res.last_name;
 
             db.findAllRoles()
+            .then(([rows]) => {
+                let roles = rows;
+                const roleChoices = roles.map(({id, title}) => ({
+                    name: title,
+                    value: id
+                }));
+            })
         })
       }
