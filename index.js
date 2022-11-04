@@ -101,5 +101,11 @@ function loadPrompts() {
                 }
             ])
             .then(res => db.findAllEmployeesbyDepartment(res.departmentId))
-        }
-    )}
+            .then(([rows]) => {
+                let employees = rows;
+                console.log("\n");
+                console.table(employees);
+            })
+            .then(() => loadMainPrompts())
+        });
+    }
