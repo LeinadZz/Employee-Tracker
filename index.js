@@ -141,3 +141,15 @@ function loadPrompts() {
           });
       }
       
+      function addEmployee() {
+        prompt([
+          {
+            name: "first_name",
+            message: "What is the employee's first name?"
+          },
+          {
+            name: "last_name",
+            message: "What is the employee's last name?"
+          }
+        ])
+        
