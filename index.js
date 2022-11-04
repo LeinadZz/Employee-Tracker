@@ -100,6 +100,6 @@ function loadPrompts() {
                     choices: departmentChoices
                 }
             ])
-
+            .then(res => db.findAllEmployeesbyDepartment(res.departmentId))
         }
     )}
