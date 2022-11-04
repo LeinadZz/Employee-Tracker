@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/LeinadZz/Employee-Tracker/issues"
   },
-  "homepage": "https://github.com/LeinadZz/Employee-Tracker#readme"
+  "homepage": "https://github.com/LeinadZz/Employee-Tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^9.1.4",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.25.3"
+  }
 }
