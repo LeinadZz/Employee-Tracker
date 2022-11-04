@@ -82,4 +82,24 @@ function loadPrompts() {
           })
           .then(() => loadMainPrompts());
       }
+
+      function viewEmployeesByDepartment() {
+        db.findAllDepartments()
+          .then(([rows]) => {
+            let departments = rows;
+            const departmentChoices = departments.map(({ id, name }) => ({
+              name: name,
+              value: id
+            }));
       
+            prompt([
+                {
+                    type: 'list',
+                    name: 'departments',
+                    message: "Which department would you like to see employees for?",
+                    choices: departmentChoices
+                }
+            ])
+
+        }
+    )}
