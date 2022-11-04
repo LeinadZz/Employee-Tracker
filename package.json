@@ -1,0 +1,19 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "Application that allows you to track your team members",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeinadZz/Employee-Tracker.git"
+  },
+  "author": "Daniel Gutierrez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeinadZz/Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/LeinadZz/Employee-Tracker#readme"
+}
