@@ -252,7 +252,7 @@ function loadPrompts() {
 
                       db.createEmployee(employee);
                     })
-                    ,then(() => console.log(`Added ${firstName} ${lastName} to database.`))
+                    .then(() => console.log(`Added ${firstName} ${lastName} to database.`))
                   })
                   .then(() => loadPrompts())
                 })
@@ -330,8 +330,8 @@ function loadPrompts() {
           db.findAllEmployees()
           .then(([rows]) => {
             let employees = rows;
-            const employeeChoices = employees.map(({id, first_name, last_name}) ({
-              name: `${firstName} ${lastName}`,
+            const employeeChoices = employees.map(({id, first_name, last_name}) => ({
+              name: `${first_name} ${last_name}`,
               value: id
             }));
 
@@ -367,16 +367,16 @@ function loadPrompts() {
               })
             })
           })
+        }
 
-          function viewRoles() {
-            db.findAllRoles()
-              .then(([rows]) => {
-                let roles = rows;
-                console.log("\n");
-                console.table(roles);
-              })
-              .then(() => loadPrompts());
-          }
+        function viewRoles() {
+          db.findAllRoles()
+            .then(([rows]) => {
+              let roles = rows;
+              console.log("\n");
+              console.table(roles);
+            })
+            .then(() => loadPrompts());
         }
 
         function addRole() {
@@ -490,7 +490,7 @@ function loadPrompts() {
               console.log("\n");
               console.table(roles);
             })
-            .then(() => loadMainPrompts());
+            .then(() => loadPrompts());
         }
         
         function quit() {
