@@ -46,6 +46,8 @@ class DB {
   removeEmployee(employeeId) {
     return this.connection.promise().query(
       "DELETE FROM employee WHERE id = ?", employeeId
-    )
+    );
   }
+
+
 }
