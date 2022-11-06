@@ -291,7 +291,26 @@ function loadPrompts() {
             ])
             .then(res => {
               let employeeId = res.employeeId
-              db.findAllManagers(employeeId);
+              db.findAllManagers(employeeId)
+              .then(([rows]) => {
+                let managers = rows;
+                const managerChoices = managers.map(({id, first_name, last_name}) => ({
+                  name: `${first_name} ${last_name}`,
+                  value: id
+                }));
+                
+                prompt([
+                  {
+                    type: "list",
+                    name: "managerId",
+                    message: "Which manager would you like to assign to the employee?",
+                    choices: managerChoices
+                  }
+                ])
+                .then(res => db.updateEmployeeManager(employeeId, res.managerId))
+                .then(() => console.log("Updated employee's manager"))
+                .then(() => loadPrompts())
+              })
             })
           })
         }
