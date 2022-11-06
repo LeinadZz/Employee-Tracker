@@ -144,10 +144,12 @@ function loadPrompts() {
       function addEmployee() {
         prompt([
           {
+            type: "input",
             name: "first_name",
             message: "What is the employee's first name?"
           },
           {
+            type: "input",
             name: "last_name",
             message: "What is the employee's last name?"
           }
@@ -429,4 +431,8 @@ function loadPrompts() {
             .then(() => loadPrompts());
         }
         
+        function quit() {
+          console.log("Goodbye !");
+          process.exit();
+        }
       }
