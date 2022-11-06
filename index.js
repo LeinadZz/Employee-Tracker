@@ -144,22 +144,23 @@ function loadPrompts() {
             }));
       
             prompt([
-                {
-                    type: 'list',
-                    name: 'departments',
-                    message: "Which department would you like to see employees for?",
-                    choices: departmentChoices
-                }
+              {
+                type: "list",
+                name: "departmentId",
+                message: "Which department would you like to see employees for?",
+                choices: departmentChoices
+              }
             ])
-            .then(res => db.findAllEmployeesByDepartment(res.departmentId))
-            .then(([rows]) => {
+              .then(res => db.findAllEmployeesByDepartment(res.departmentId))
+              .then(([rows]) => {
                 let employees = rows;
                 console.log("\n");
                 console.table(employees);
-            })
-            .then(() => loadPrompts())
-        });
-    }
+              })
+              .then(() => loadPrompts())
+          });
+      }
+      
 
     function viewEmployeesByManager() {
         db.findAllEmployees()
