@@ -358,4 +358,28 @@ function loadPrompts() {
             })
         }
         
+        function removeRole() {
+          db.findAllRoles()
+            .then(([rows]) => {
+              let roles = rows;
+              const roleChoices = roles.map(({ id, title }) => ({
+                name: title,
+                value: id
+              }));
+        
+              prompt([
+                {
+                  type: "list",
+                  name: "roleId",
+                  message:
+                    "Which role do you want to remove? (Warning: This will also remove employees)",
+                  choices: roleChoices
+                }
+              ])
+                .then(res => db.removeRole(res.roleId))
+                .then(() => console.log("Removed role from the database"))
+                .then(() => loadPrompts())
+            })
+        }
+        
       }
