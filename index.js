@@ -151,7 +151,7 @@ function loadPrompts() {
                     choices: departmentChoices
                 }
             ])
-            .then(res => db.findAllEmployeesbyDepartment(res.departmentId))
+            .then(res => db.findAllEmployeesByDepartment(res.departmentId))
             .then(([rows]) => {
                 let employees = rows;
                 console.log("\n");
@@ -481,6 +481,16 @@ function loadPrompts() {
               console.table(departments);
             })
             .then(() => loadPrompts());
+        }
+        
+        function viewRoles() {
+          db.findAllRoles()
+            .then(([rows]) => {
+              let roles = rows;
+              console.log("\n");
+              console.table(roles);
+            })
+            .then(() => loadMainPrompts());
         }
         
         function quit() {
