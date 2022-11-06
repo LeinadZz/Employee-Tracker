@@ -224,7 +224,8 @@ function loadPrompts() {
               }
             ])
             .then(res => db.removeEmployee(res.employeeId))
-            
+            .then(() => console.log("Removed employee from database."))
+            .then(() => loadPrompts())
           })
         }
       }
