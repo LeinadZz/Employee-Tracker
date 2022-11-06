@@ -419,4 +419,14 @@ function loadPrompts() {
             })
         }
         
+        function viewDepartments() {
+          db.findAllDepartments()
+            .then(([rows]) => {
+              let departments = rows;
+              console.log("\n");
+              console.table(departments);
+            })
+            .then(() => loadPrompts());
+        }
+        
       }
