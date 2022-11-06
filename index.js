@@ -80,7 +80,7 @@ function loadPrompts() {
             console.log("\n");
             console.table(employees);
           })
-          .then(() => loadMainPrompts());
+          .then(() => loadPrompts());
       }
 
       function viewEmployeesByDepartment() {
@@ -106,7 +106,7 @@ function loadPrompts() {
                 console.log("\n");
                 console.table(employees);
             })
-            .then(() => loadMainPrompts())
+            .then(() => loadPrompts())
         });
     }
 
@@ -137,7 +137,7 @@ function loadPrompts() {
                   console.table(employees);
                 }
               })
-              .then(() => loadMainPrompts())
+              .then(() => loadPrompts())
           });
       }
       
@@ -201,7 +201,7 @@ function loadPrompts() {
                     })
                     ,then(() => console.log(`Added ${firstName} ${lastName} to database.`))
                   })
-                  .then(() => loadMainPrompts())
+                  .then(() => loadPrompts())
                 })
             })
         })
