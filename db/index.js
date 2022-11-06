@@ -90,4 +90,11 @@ class DB {
       department);
   }
 
+  removeDepartment(departmentId) {
+    return this.connection.promise().query(
+      "DELETE FROM department WHERE id = ?",
+      departmentId
+    );
+  }
+
 }
