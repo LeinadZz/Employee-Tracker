@@ -271,4 +271,28 @@ function loadPrompts() {
             })
           })
         }
+        
+        function updateEmployeeManager() {
+          db.findAllEmployees()
+          .then(([rows]) => {
+            let employees = rows;
+            const employeeChoices = employees.map(({id, first_name, last_name}) ({
+              name: `${firstName} ${lastName}`,
+              value: id
+            }));
+
+            prompt([
+              {
+                type: "list",
+                name: "employeeId",
+                message: "Which employee would you like to update?",
+                choices: employeeChoices
+              }
+            ])
+            .then(res => {
+              let employeeId = res.employeeId
+              db.findAllManagers(employeeId);
+            })
+          })
+        }
       }
