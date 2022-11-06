@@ -205,4 +205,26 @@ function loadPrompts() {
                 })
             })
         })
+
+        function removeEmployee() {
+          db.findAllEmployees()
+          .then(([rows]) => {
+            let employees = rows;
+            const employeeChoices = employees.map(({id, first_name, last_name}) => ({
+              name: `${first_name} ${last_name}`,
+              value: id
+            }));
+
+            prompt([
+              {
+                type: "list",
+                name: "employeeId",
+                message: "Which employee would you like to remove?",
+                choices: employeeChoices
+              }
+            ])
+            .then(res => db.removeEmployee(res.employeeId))
+            
+          })
+        }
       }
