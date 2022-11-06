@@ -382,4 +382,19 @@ function loadPrompts() {
             })
         }
         
+        function addDepartment() {
+          prompt([
+            {
+              name: "name",
+              message: "What is the name of the department?"
+            }
+          ])
+            .then(res => {
+              let name = res;
+              db.createDepartment(name)
+                .then(() => console.log(`Added ${name.name} to the database`))
+                .then(() => loadPrompts())
+            })
+        }
+        
       }
