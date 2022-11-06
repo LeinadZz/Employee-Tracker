@@ -8,7 +8,7 @@ and [Mysql2](https://www.npmjs.com/package/mysql2) to help manage the database s
    - [Description](#Employee-Tracker)
    - [User Story](#User-Story)
    - [Installation](#Installation)
-   - [Instructions](#To Run Locally)
+   - [Instructions](#To-Run-Locally)
    - [Demo](#Demo)
    - [Screenshot](#Screenshot)
 
