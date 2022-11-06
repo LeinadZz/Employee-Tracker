@@ -55,4 +55,11 @@ class DB {
       [roleId, employeeId]
     );
   }
+
+  findAllManagers(employeeId) {
+    return this.connection.promise().query(
+      "SELECT id, first_name, last_name FROM employee WHERE id != ?",
+      employeeId
+    )
+  }
 }
