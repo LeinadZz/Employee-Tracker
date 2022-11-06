@@ -2,6 +2,13 @@ const { prompt } = require("inquirer");
 const db = require("./db");
 require(console.table);
 
+init();
+
+function init() {
+  console.log("Welcome to Employee Tracker !")
+  loadPrompts();
+}
+
 function loadPrompts() {
     prompt([
       {
