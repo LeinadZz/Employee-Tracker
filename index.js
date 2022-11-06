@@ -323,7 +323,38 @@ function loadPrompts() {
               })
               .then(() => loadPrompts());
           }
+        }
 
-          
+        function addRole() {
+          db.findAllDepartments()
+            .then(([rows]) => {
+              let departments = rows;
+              const departmentChoices = departments.map(({ id, name }) => ({
+                name: name,
+                value: id
+              }));
+        
+              prompt([
+                {
+                  name: "title",
+                  message: "What is the name of the role?"
+                },
+                {
+                  name: "salary",
+                  message: "What is the salary of the role?"
+                },
+                {
+                  type: "list",
+                  name: "department_id",
+                  message: "Which department does the role belong to?",
+                  choices: departmentChoices
+                }
+              ])
+                .then(role => {
+                  db.createRole(role)
+                    .then(() => console.log(`Added ${role.title} to the database`))
+                    .then(() => loadPrompts())
+                })
+            })
         }
       }
