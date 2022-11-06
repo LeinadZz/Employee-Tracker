@@ -76,4 +76,13 @@ class DB {
       role
     );
   }
+
+  removeRole(roleId) {
+    return this.connection.promise().query(
+      "DELETE FROM role WHERE id = ?",
+      roleId
+    );
+  }
+
+  
 }
